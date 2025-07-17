@@ -1,0 +1,6 @@
+module taskApplication
+typeinfo apptaskApplication.qmltypes
+prefer :/qt/qml/taskApplication/
+Main 1.0 Main.qml
+Navbar 1.0 Navbar.qml
+

@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/qt/qml/taskApplication/">
+    <file alias="Main.qml">/Users/xdxd123/taskApplication/Main.qml</file>
+    <file alias="Navbar.qml">/Users/xdxd123/taskApplication/Navbar.qml</file>
+  </qresource>
+</RCC>
+

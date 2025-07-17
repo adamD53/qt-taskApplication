@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/taskApplication">
+    <file alias="qmldir">/Users/xdxd123/taskApplication/build/Qt_6_7_3_for_macOS-Debug/taskApplication/qmldir</file>
+  </qresource>
+</RCC>
+
