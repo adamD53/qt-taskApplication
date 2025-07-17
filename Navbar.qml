@@ -8,7 +8,7 @@ Rectangle {
     width: 240
     color: "black"
 
-    property int fontSize: 18
+    property int fontSize: 20
 
     Rectangle {
         width: 240
