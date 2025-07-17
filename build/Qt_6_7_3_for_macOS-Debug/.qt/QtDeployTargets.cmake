@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_apptaskApplication_FILE /Users/xdxd123/taskApplication/build/Qt_6_7_3_for_macOS-Debug/apptaskApplication.app/Contents/MacOS/apptaskApplication)
-set(__QT_DEPLOY_TARGET_apptaskApplication_TYPE EXECUTABLE)
