@@ -2,13 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
-
 Rectangle {
-    height: parent.height
-    width: 240
     color: "black"
 
-    property int fontSize: 20
+    property int fontSize: 18
 
     Rectangle {
         width: 240
@@ -22,11 +19,9 @@ Rectangle {
             anchors.rightMargin: 20
             anchors.topMargin: 15
 
-            Text {
-                text: "close"
-                color: "white"
-                font.pixelSize: 15
+            Image {
                 Layout.alignment: Qt.AlignRight
+                source: "qrc:/img/close.svg"
             }
 
             Text {

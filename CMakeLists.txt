@@ -19,6 +19,9 @@ qt_add_qml_module(apptaskApplication
         Main.qml
         SOURCES task.h task.cpp
         QML_FILES Navbar.qml
+        RESOURCES
+        RESOURCES resources.qrc
+        QML_FILES TaskDisplay.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
