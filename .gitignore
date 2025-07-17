@@ -1,0 +1,27 @@
+# CMake build
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Qt Creator/CLion/etc.
+*.autosave
+*.user
+*.pro.user*
+*.qbs.user
+*.creator.*
+*.log
+
+# Compiled binary/object files
+*.o
+*.obj
+*.so
+*.a
+*.exe
+*.dll
+
+# IDE junk
+.idea/
+.vscode/
+.DS_Store
