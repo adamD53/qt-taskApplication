@@ -20,8 +20,7 @@ Window {
             Layout.fillHeight: true
             Layout.minimumWidth: 500
             Layout.preferredWidth: 784
+            Layout.preferredHeight: 720
         }
     }
-
-
 }
