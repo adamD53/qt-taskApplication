@@ -3,12 +3,15 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 Rectangle {
+
     Rectangle {
         height: 200
         width: 500
+
         ColumnLayout {
             anchors.fill: parent
             anchors.margins: 20
+            spacing: 20
 
             Text {
                 text: "<b>19</b> june"
@@ -41,6 +44,7 @@ Rectangle {
                     }
 
                     Button {
+                        highlighted: true
                         Text {
                             text: "Add"
                             anchors.centerIn: parent
@@ -56,18 +60,18 @@ Rectangle {
             }
 
             Rectangle {
-                ColumnLayout {
-                    anchors.fill: parent
-                    anchors.leftMargin: 20
+                width: 100
+                height: 300
 
-                    Text {
-                       font.pixelSize: 15
-                       text: "My task number one"
+                ListView {
+                    anchors.fill: parent
+                    spacing: 10
+                    model: taskModelView
+                    delegate: Text {
+                        text: name
+                        font.pixelSize: 17
                     }
-                    Text {
-                       font.pixelSize: 15
-                       text: "My task number one"
-                    }
+
                 }
             }
 

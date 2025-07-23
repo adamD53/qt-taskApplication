@@ -1,26 +1,26 @@
 #include "task.h"
 
-Task::Task(QString &description, QObject *parent)
-    : QObject{parent}, m_Description(description), m_Completed(false)
-{}
+Task::Task(const QString &title, bool done): m_title(title), m_done(done) {}
 
-QString Task::getDescription()
+QString Task::getTitle()
 {
-    return m_Description;
+    return m_title;
 }
 
-bool Task::getCompletionStatus()
+bool Task::getDone()
 {
-    return m_Completed;
+    return m_done;
 }
 
-void Task::completeTask()
+void Task::setTitle(const QString &title)
 {
-    if (!m_Completed)
+    if (m_title != title)
     {
-        m_Completed = true;
-        qInfo() << "Task completed: " << m_Description;
-
-        emit taskCompleted(m_Description);
+        m_title = title;
     }
+}
+
+void Task::setDone(bool done)
+{
+    m_done = done;
 }

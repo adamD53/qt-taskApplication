@@ -1,27 +1,21 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <QObject>
 #include <QString>
-#include <QDebug>
 
-class Task : public QObject
+class Task
 {
-    Q_OBJECT
 public:
-    explicit Task(QString &description, QObject *parent = nullptr);
+    Task(const QString &title, bool done = false);
 
-    QString getDescription();
-    bool getCompletionStatus();
+    QString getTitle();
+    bool getDone();
 
-    void completeTask();
-
-signals:
-    void taskCompleted(const QString &description);
-
+    void setTitle(const QString& title);
+    void setDone(bool done);
 private:
-    QString m_Description;
-    bool m_Completed;
+    QString m_title;
+    bool m_done;
 };
 
 #endif // TASK_H
