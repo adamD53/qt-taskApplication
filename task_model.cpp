@@ -3,7 +3,7 @@
 TaskModel::TaskModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    m_tasks.append(new Task("my task1"));
+    m_tasks.append(new Task("test", true));
     m_tasks.append(new Task("my task1"));
     m_tasks.append(new Task("my task1"));
     m_tasks.append(new Task("my task1"));
@@ -60,6 +60,8 @@ bool TaskModel::setData(const QModelIndex &index, const QVariant &value, int rol
     default:
         return false;
     }
+
+    emit dataChanged(index, index, { role });
     return true;
 }
 

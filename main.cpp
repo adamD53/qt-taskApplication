@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QSortFilterProxyModel>
 
 #include "task_model.h"
 
@@ -12,7 +13,18 @@ int main(int argc, char *argv[])
 
     TaskModel model(&app);
 
-    engine.rootContext()->setContextProperty("taskModelView", &model);
+    QSortFilterProxyModel *activeTasksProxy = new QSortFilterProxyModel(&app);
+    activeTasksProxy->setSourceModel(&model);
+    activeTasksProxy->setFilterRole(TaskModel::DoneRole);
+    activeTasksProxy->setFilterFixedString("false");
+
+    QSortFilterProxyModel *completedTasksProxy = new QSortFilterProxyModel(&app);
+    completedTasksProxy->setSourceModel(&model);
+    completedTasksProxy->setFilterRole(TaskModel::DoneRole);
+    completedTasksProxy->setFilterFixedString("true");
+
+    engine.rootContext()->setContextProperty("activeTasksModel", activeTasksProxy);
+    engine.rootContext()->setContextProperty("completedTasksModel", completedTasksProxy);
 
     QObject::connect(
         &engine,

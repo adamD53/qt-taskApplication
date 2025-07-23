@@ -6,6 +6,48 @@ Rectangle {
     height: parent.height
     width: parent.width
 
+    Component {
+        id: taskComponent
+
+        Rectangle {
+            width: parent.width
+            height: 45
+
+            Rectangle {
+                width: parent.width
+                height: 1
+                color: "#e6ebed"
+            }
+
+            RowLayout {
+                anchors.fill: parent
+                anchors.margins: 10
+
+                CheckBox {
+                    id: checkBox
+                    Component.onCompleted: checkBox.checked = done
+                    onCheckStateChanged: done = checkBox.checked
+                    Layout.rightMargin: 5
+                }
+
+                Text {
+                    text: name
+                    font.pixelSize: 17
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                Text {
+                    text: "Priority"
+                    font.pixelSize: 10
+                    color: "#d2d6d8"
+                }
+            }
+        }
+    }
+
     ColumnLayout {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -52,42 +94,8 @@ Rectangle {
                     Layout.fillHeight: true
                     clip: true
                     spacing: 0
-                    model: taskModelView
-                    delegate: Rectangle {
-                        width: parent.width
-                        height: 45
-
-                        Rectangle {
-                            width: parent.width
-                            height: 1
-                            color: "#e6ebed"
-                        }
-
-                        RowLayout {
-                            anchors.fill: parent
-                            anchors.margins: 10
-
-                            CheckBox {
-                                checked: false
-                                Layout.rightMargin: 5
-                            }
-
-                            Text {
-                                text: name
-                                font.pixelSize: 17
-                            }
-
-                            Item {
-                                Layout.fillWidth: true
-                            }
-
-                            Text {
-                                text: "Priority"
-                                font.pixelSize: 10
-                                color: "#d2d6d8"
-                            }
-                        }
-                    }
+                    model: activeTasksModel
+                    delegate: taskComponent
                 }
 
                 Rectangle {
@@ -168,42 +176,8 @@ Rectangle {
                     Layout.fillHeight: true
                     clip: true
                     spacing: 0
-                    model: taskModelView
-                    delegate: Rectangle {
-                        width: parent.width
-                        height: 45
-
-                        Rectangle {
-                            width: parent.width
-                            height: 1
-                            color: "#e6ebed"
-                        }
-
-                        RowLayout {
-                            anchors.fill: parent
-                            anchors.margins: 10
-
-                            CheckBox {
-                                checked: false
-                                Layout.rightMargin: 5
-                            }
-
-                            Text {
-                                text: name
-                                font.pixelSize: 17
-                            }
-
-                            Item {
-                                Layout.fillWidth: true
-                            }
-
-                            Text {
-                                text: "Priority"
-                                font.pixelSize: 10
-                                color: "#d2d6d8"
-                            }
-                        }
-                    }
+                    model: completedTasksModel
+                    delegate: taskComponent
                 }
             }
         }
