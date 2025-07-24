@@ -1,5 +1,4 @@
-#ifndef TASK_H
-#define TASK_H
+#pragma once
 
 #include <QString>
 
@@ -17,5 +16,3 @@ private:
     QString m_title;
     bool m_done;
 };
-
-#endif // TASK_H

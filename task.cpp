@@ -1,4 +1,4 @@
-#include "task.h"
+#include "task.hpp"
 
 Task::Task(const QString &title, bool done): m_title(title), m_done(done) {}
 

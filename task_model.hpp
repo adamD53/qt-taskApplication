@@ -1,11 +1,10 @@
-#ifndef TaskModel_H
-#define TaskModel_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QHash>
 #include <QVector>
 
-#include "task.h"
+#include "task.hpp"
 
 class TaskModel : public QAbstractListModel
 {
@@ -27,5 +26,3 @@ private:
     QVector<Task*> m_tasks;
 
 };
-
-#endif // TaskModel_H

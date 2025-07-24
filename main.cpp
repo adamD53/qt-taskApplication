@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include <QSortFilterProxyModel>
 
-#include "task_model.h"
+#include "task_model.hpp"
 
 int main(int argc, char *argv[])
 {

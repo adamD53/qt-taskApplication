@@ -1,9 +1,9 @@
-#include "task_model.h"
+#include "task_model.hpp"
 
 TaskModel::TaskModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    m_tasks.append(new Task("test", true));
+    m_tasks.append(new Task("test"));
     m_tasks.append(new Task("my task1"));
     m_tasks.append(new Task("my task1"));
     m_tasks.append(new Task("my task1"));
@@ -19,6 +19,7 @@ QHash<int, QByteArray> TaskModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[TitleRole] = "name";
     roles[DoneRole] = "done";
+
     return roles;
 }
 

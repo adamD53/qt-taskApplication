@@ -10,7 +10,8 @@ Rectangle {
         id: taskComponent
 
         Rectangle {
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             height: 45
 
             Rectangle {
@@ -173,7 +174,7 @@ Rectangle {
                 ListView {
                     Layout.alignment: Qt.AlignTop
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    Layout.preferredHeight: 150
                     clip: true
                     spacing: 0
                     model: completedTasksModel
