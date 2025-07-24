@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
+
 Rectangle {
+
     height: parent.height
     width: parent.width
 
@@ -32,7 +34,7 @@ Rectangle {
                 }
 
                 Text {
-                    text: name
+                    text: model.name
                     font.pixelSize: 17
                 }
 
@@ -94,6 +96,7 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     clip: true
+                    verticalLayoutDirection: ListView.BottomToTop
                     spacing: 0
                     model: activeTasksModel
                     delegate: taskComponent
@@ -117,6 +120,7 @@ Rectangle {
                             border.color: "#e6ebed"
 
                             TextInput {
+                                id: input
                                 font.pixelSize: 17
                                 anchors.fill: parent
                                 anchors.topMargin: 11
@@ -137,6 +141,14 @@ Rectangle {
                                 acceptedDevices: PointerDevice.Mouse
                                                  || PointerDevice.TouchPad
                                 cursorShape: Qt.OpenHandCursor
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent;
+                                onClicked: {
+                                    taskModel.addTask(input.text);
+                                    input.clear();
+                                } 
                             }
 
                             Text {

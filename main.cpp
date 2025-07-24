@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QSortFilterProxyModel>
+#include <QDebug>
 
 #include "task_model.hpp"
 
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     TaskModel model(&app);
+    engine.rootContext()->setContextProperty("taskModel", &model);
 
     QSortFilterProxyModel *activeTasksProxy = new QSortFilterProxyModel(&app);
     activeTasksProxy->setSourceModel(&model);

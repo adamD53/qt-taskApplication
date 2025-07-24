@@ -3,15 +3,9 @@
 TaskModel::TaskModel(QObject *parent)
     : QAbstractListModel{parent}
 {
-    m_tasks.append(new Task("test"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
-    m_tasks.append(new Task("my task1"));
+    TaskModel::addTask("task1");
+    TaskModel::addTask("task2");
+    TaskModel::addTask("task3");
 }
 
 QHash<int, QByteArray> TaskModel::roleNames() const
@@ -64,6 +58,14 @@ bool TaskModel::setData(const QModelIndex &index, const QVariant &value, int rol
 
     emit dataChanged(index, index, { role });
     return true;
+}
+
+void TaskModel::addTask(const QString &title)
+{
+    qDebug() << "add Task()";
+    beginInsertRows(QModelIndex(), m_tasks.size(), m_tasks.size());
+    m_tasks.append(new Task(title));
+    endInsertRows();
 }
 
 
